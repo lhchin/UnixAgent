@@ -4,7 +4,7 @@ package Ocsinventory::Agent::Network;
 use strict;
 use warnings;
 
-use IO::Socket::SSL qw(SSL_VERIFY_NONE);
+#use IO::Socket::SSL qw(SSL_VERIFY_NONE);
 use LWP::UserAgent;
 use Socket;
 
@@ -74,7 +74,7 @@ sub new {
 
         if ($self->{config}->{ssl} == 0 ) {
             $self->{ua}->ssl_opts(
-                SSL_verify_mode => SSL_VERIFY_NONE
+                SSL_verify_mode => 'SSL_VERIFY_NONE'
             );
         }
     } elsif ($self->{config}->{ssl} eq 1) {
